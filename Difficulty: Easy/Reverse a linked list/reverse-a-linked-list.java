@@ -64,6 +64,11 @@ class Node {
 
 */
 
+
+//
+/////////////////////////
+  // watch ANUJ VIDEO to samajh
+  //////////
 class Solution {
     Node reverseList(Node head) {
          if(head ==null || head.next == null) return head;
@@ -80,10 +85,10 @@ class Solution {
             
             before_curr = curr;
             curr = after_curr;
-            if(after_curr!=null)
+            if(after_curr!=null) // If `after_curr` is not null, move it to the next node in the original list
             {
                 after_curr = after_curr.next;
-            }else{curr = null;}
+            }else{curr = null;} // If `after_curr` is null, set `curr` to null to exit the loop
             
             
         }
