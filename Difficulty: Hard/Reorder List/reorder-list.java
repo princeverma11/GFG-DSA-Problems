@@ -53,17 +53,6 @@ class Solution {
            t1 = temp_nextoft1;
            t2 = temp_nextoft2;
            
-        //   if(t2 == t2.next) // for even
-        //   {
-        //       t2.next = null;
-        //       break;
-        //   }
-        //   if(t1.next == null && t2.next == null) // for odd
-        //   {
-        //       t2.next = null;
-        //       break;
-        //   }
-          
            
        }
        
