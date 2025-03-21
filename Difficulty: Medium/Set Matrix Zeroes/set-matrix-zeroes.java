@@ -36,6 +36,15 @@ public class Main {
 
 
 //Back-end complete function Template for Java
+
+//see copy notes too 
+//page no. - 11
+//see gfg approach but not code
+// see yt video of striver - https://www.youtube.com/watch?v=N0MgLvceX7M
+//ignore the bruteforce appr. , only focus on NAIVE AND EXPECTED APPROACH
+
+
+
 class Solution 
 {
     public void setMatrixZeroes(int[][] mat) 
