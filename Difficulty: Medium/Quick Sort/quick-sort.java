@@ -29,50 +29,50 @@ class Sorting {
 // } Driver Code Ends
 
 
-class Solution {
+class Solution 
+{
     // Function to sort an array using quick sort algorithm.
-    static void quickSort(int arr[], int low, int high) {
-        if (low < high) {
-            
-            // pivotIndex is the partition return index of pivot
-            int pivotIndex = partition(arr, low, high);
-
-            // Recursion calls for smaller elements
-            // and greater or equals elements
-            quickSort(arr, low, pivotIndex - 1);
-            quickSort(arr, pivotIndex + 1, high);
-    }
-}
-
-    static int partition(int arr[], int low, int high) 
+    static void quickSort(int arr[], int l, int h) 
     {
-        int pivot = arr[low];
-        int i = low;
-        int j = high;
-        
-        while(i<=j)
+        if(l<h)
         {
-            while(i<=high && arr[i]<=pivot)
-                i++;
-            
-            while(j>=low && arr[j]> pivot)
-                j--;
-                
-            if(i<j) 
-            swap(arr , i , j);    
-            
+            int ciofe = partition(arr , l , h); //correct_index_of_first_element
+            //moreover first element ko uski shi position pr pahocha bhi dega in sorted array
+    
+            //kyuki woh shi posotion pr pahoch gya h isliye m ab uske left and right part k liye same function call krdunga;
+            quickSort(arr , l , ciofe -1 );
+            quickSort(arr , ciofe +1 , h );
         }
-        swap(arr , low , j);
+        
+        
+    }
+        
+
+    static int partition(int arr[], int l, int h) 
+    {
+        int pivotelem = arr[l];
+        int i = l;
+        int j = h;
+        
+        
+        while (i<=j)
+        {
+            while(i<=h && arr[i]<=pivotelem) i++;
+            while(j>=l && arr[j]>pivotelem) j--;
+            
+            if(i<j) swap(arr , i , j);
+        }
+        swap(arr , l , j);
+        
         return j;
         
-        
-        
     }
-    static void swap(int[] arr, int i, int j)
+    
+    static void swap(int[] arr , int i , int j)
     {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
+    
 }
-
