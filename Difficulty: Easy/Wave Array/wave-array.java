@@ -52,7 +52,7 @@ class GFG {
 // } Driver Code Ends
 
 
-
+//TC - O(nlogn)
 class Solution {
     public static void convertToWave(int[] arr) {
         
