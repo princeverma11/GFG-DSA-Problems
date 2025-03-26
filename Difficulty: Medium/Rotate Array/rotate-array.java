@@ -47,24 +47,21 @@ class Solution {
         
         int[] temp = new int[2*arr.length];
         
-        int i =0 ;
-        int t =0;
-        while(t<temp.length)
-        {
-            temp[t] = arr[i];
-            i++;
-            t++;
-            if(i == arr.length)
-            {
-                i=0;
-            }
+         for (int i = 0; i <= arr.length - 1; i++) {
+            temp[i] = arr[i];
+            temp[i + arr.length] = arr[i];
         }
         
         int net_rotations = d % arr.length; // so now net_rotations will be always <= arr.length  
         
-        for( i=0 ; i<arr.length ; i++)
-        
-            arr[i] = temp[i+net_rotations];
+        for( int i=0 ; i<arr.length ; i++)
+        {
+            arr[i] = temp[i+net_rotations];   
         }
+            
+        
+        
+    }
+        
         
     }
