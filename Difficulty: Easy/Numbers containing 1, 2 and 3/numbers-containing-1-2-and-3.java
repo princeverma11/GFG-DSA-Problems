@@ -38,39 +38,48 @@ public class Main {
 // } Driver Code Ends
 
 
+
+
 // User function Template for Java
 
 class Solution {
     public List<Integer> filterByDigits(List<Integer> arr) 
     {
-        List<Integer> ansList = new ArrayList<>();
+        
+        List<Integer> ans = new ArrayList<>();
+        
         for(int i=0 ; i<arr.size() ; i++)
         {
-            boolean isValid = true;
-            int element = arr.get(i);
-
-            while (element > 0) 
+            int curr = arr.get(i);
+           
+            boolean valid = false;
+            while(curr != 0)
             {
-                int ld = element % 10;
-                if (ld != 1 && ld != 2 && ld != 3) {
-                    isValid = false;
+                int ld = curr%10;
+                curr /=10;
+                if(ld >=1 && ld<=3)
+                {
+                    valid = true;
+                }
+                else
+                {
+                    valid = false;
                     break;
-                    }
-             element = element/10;
+                }                
             }
-             if (isValid) {
-                ansList.add(arr.get(i));
+            if(valid)
+            {
+                ans.add(arr.get(i));
+               
             }
+            
         }
-       
         
-        if (ansList.isEmpty()) {
-            ansList.add(-1);
-        }
-         return ansList;
-        
-
-        
-        
+        if(ans.isEmpty())
+            {
+                ans.add(-1);
+                return ans;    
+            }
+        return ans;
     }
 }
