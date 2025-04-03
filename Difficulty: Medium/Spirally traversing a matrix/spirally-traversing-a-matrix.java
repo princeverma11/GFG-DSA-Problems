@@ -27,66 +27,52 @@ class GFG {
 }
 // } Driver Code Ends
 
-// see leetcode code 
+
+
+// see leetcode code  - i solved it there
 class Solution {
     // Function to return a list of integers denoting spiral traversal of matrix.
     public ArrayList<Integer> spirallyTraverse(int mat[][]) {
-       
-     int m = mat.length;
+        ArrayList<Integer> ans = new ArrayList<>(); 
+        
+        int m = mat.length;
+        if (m == 0) return ans;
         int n = mat[0].length;
+        
+        int top = 0;
+        int left = 0;
+        int right = n-1;
+        int bottom = m-1;
 
-        ArrayList<Integer> res = new ArrayList<>();
-        boolean[][] vis = new boolean[m][n];
-
-        // Change in row index for each direction
-        int[] dr = { 0, 1, 0, -1 };
-
-        // Change in column index for each direction
-        int[] dc = { 1, 0, -1, 0 };
-
-        // Initial position in the matrix
-        int r = 0, c = 0;
-
-        // Initial direction index (0 corresponds to 'right')
-        int idx = 0;
-
-        for (int i = 0; i < m * n; ++i) {
-
-            // Add current element to result list
-            res.add(mat[r][c]);
-
-            // Mark current cell as visited
-            vis[r][c] = true;
-
-            // Calculate the next cell coordinates based on
-            // current direction
-            int newR = r + dr[idx];
-            int newC = c + dc[idx];
-
-            // Check if the next cell is within bounds and not
-            // visited
-            if (0 <= newR && newR < m && 0 <= newC && newC < n
-                    && !vis[newR][newC]) {
-
-                // Move to the next row
-                r = newR;
-
-                // Move to the next column
-                c = newC;
-            } else {
-
-                // Change direction (turn clockwise)
-                idx = (idx + 1) % 4;
-
-                // Move to the next row according to new
-                // direction
-                r += dr[idx];
-
-                // Move to the next column according to new
-                // direction
-                c += dc[idx];
+        while(top <= bottom && left <= right) {
+            // Traverse from left to right on top row
+            for(int i = left; i <= right; i++) {
+                ans.add(mat[top][i]);
             }
-        } return res;
-
+            top++;
+            
+            // Traverse from top to bottom on right column
+            for(int i = top; i <= bottom; i++) {
+                ans.add(mat[i][right]);
+            }
+            right--;
+            
+            // If there are remaining rows, traverse from right to left on bottom row
+            if (top <= bottom) {
+                for(int i = right; i >= left; i--) {
+                    ans.add(mat[bottom][i]);
+                }
+                bottom--;
+            }
+            
+            // If there are remaining columns, traverse from bottom to top on left column
+            if (left <= right) {
+                for(int i = bottom; i >= top; i--) {
+                    ans.add(mat[i][left]);
+                }
+                left++;
+            }
+        }
+        return ans;
     }
 }
